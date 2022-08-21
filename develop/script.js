@@ -1,88 +1,85 @@
 // Assignment code here
 
-//Get references to the #generate element from HTML
+//Get references to the #generate and #password elements from HTML
 var generateBtn = document.querySelector("#generate");
+var quit = document.querySelector("#password");
 
-//once the page finished loading the alert pops up
+var getStarted = function() {
+    var promptGenerate = window.prompt("To create a password say YES, to exit say NO."); 
+    if (promptGenerate === "YES" || promptGenerate === "yes") {
+        window.alert("Let's get started!");
+        console.log("user said yes");
+        getPasswordLength();
+    } else if (promptGenerate === "no" || promptGenerate === "NO") {
+        alert("see you next time!");
+        nowQuit();
+    } else {
+        alert("Invalid. Please try again!");
+        pwGenerator();
+    };
+}; 
+
+//once the page finished loading the alert pops up and getStarted function runs
 var pwGenerator = function () {
     window.alert("Welcome to Password Generator!");
-    
-    var getStarted = function() {
-        var promptGenerate = window.prompt("To create a password say YES, to exit say NO.");
-        //promptGenerate = promptGenerate.toLowerCase();
-        // if user's response is empty or null, alert them that they need to reply with only yes or no and return to the prompt question again
-        // if (promptGenerate === "" || promptGenerate === null ) {
-        //     window.alert("You need to provide a valid answer. Please try again!");
-        //     return pwGenerator();
-        // // make sure to only accept "yes" or "no" for an answer    
-        // } 
-        if (promptGenerate === "yes") {
-            window.alert("Press button to start!");
-            console.log("user said yes");
-            getPasswordLength;
-        } else if (promptGenerate === "no") {
-            alert("see you next time!");
-            nowQuit();
-        } else {
-            alert("Invalid. Please try again!");
-            pwGenerator();
-        };
-    }; getStarted(); 
+    getStarted(); 
 }; 
 
 
-
-
-    // ask a user how long they want their password to be
+// ask user how long they want their password to be
 var getPasswordLength = function() {
     var passwordLength = window.prompt("How many character would you like your password to include? Choose a number between 8 and 128.");
-    //passwordLength = "";
     // set that the password has to be at least 8 and max 128 characters long
-    
     // while (passwordLength >=8 && passwordLength <= 128) // no need to do the loop, becasue the value of passwordLength will not change
     if (passwordLength >=8 && passwordLength <= 128) {
         console.log("password length is " + passwordLength);
         window.alert("Your password length is " + passwordLength);
-        //getLetters();
+        getLetters();
     } else {
         window.alert("Invalid. Please try again!");
         getPasswordLength();
     } return passwordLength;
 };  // end of passwordLength function
-document.getElementById("generate").addEventListener("click", getPasswordLength);
+
     
-
-/*
-
 // next, ask the use if they would like to include letters
-var getLetters = function() {
-    var ifLetters = window.prompt("Would you like to include the letters in your password? Reply YES or NO.");
-    // use switch statement to check multiple options
-    switch (ifLetters) {
-        // if the user replies YES, let them know password will include letters and move on to the numbers
-        case "yes":
-        case "YES":
-            console.log("user said " + ifLetters + " to the letters");
-            window.alert("Your password will contain letters. Please continue");
-            getNumber();
-            return true;
-            break;
-                
-        // if the user replies NO, let them know password will NOT include letters and move on to the numbers
-        case "no":
-        case "NO":
-            console.log("user said " + ifLetters + " to the letters");
-            window.alert("Your password will not contain any letters. Please continue");
-            getNumber();
-            return false;
-            break;
+var alphabetArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+console.log(alphabetArray);
 
-        // if user provides invalid response take them back to the beginning of the function statement    
-        default:
-            window.alert("You didn't choose a valid option. Try again!");
-            getLetters();
-    } // end of switch statement for letters
-    
+var generateRandomLetter = function() {
+  var randomLetter = Math.floor(Math.random() * alphabetArray.length);
+  console.log(randomLetter, alphabetArray[randomLetter]);
+};
+
+var ifLetters;
+var getLetters = function() {
+  var ifLetters = window.prompt("Would you like to include the letters in your password? Reply YES or NO.");
+  // use switch statement to check multiple options
+  switch (ifLetters) {
+      // if the user replies YES, let them know password will include letters and move on to the numbers
+      case "yes":
+      case "YES":
+          console.log("user said " + ifLetters + " to the letters");
+          window.alert("Your password will contain letters. Please continue");
+          generateRandomLetter();
+          getNumber();
+          return true;
+          break;
+              
+      // if the user replies NO, let them know password will NOT include letters and move on to the numbers
+      case "no":
+      case "NO":
+          console.log("user said " + ifLetters + " to the letters");
+          window.alert("Your password will not contain any letters. Please continue");
+          getNumber();
+          return false;
+          break;
+
+      // if user provides invalid response take them back to the beginning of the function statement    
+      default:
+          window.alert("You didn't choose a valid option. Try again!");
+          getLetters();
+  } // end of switch statement for letters
 }; // end of getletter function
 
 
@@ -167,14 +164,13 @@ var getSpecialChar = function() {
     // function generatePassword() {
         
     // }
-    // generateBtn.addEventListener("click", generatePassword); 
-        
-*/
+    // 
+    //document.getElementById("generate").addEventListener("click", generatePassword);
+
 
 var nowQuit = function() {
-    var quit = document.querySelector("#password");
-    quit.innerHTML("poopeepoo");
+    quit.innerHTML = "See You next Time!";
     console.log("quit now");
 };
     
-//pwGenerator();
+
