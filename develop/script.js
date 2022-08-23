@@ -15,7 +15,7 @@ var getStarted = function() {
         nowQuit();
     } else {
         alert("Invalid. Please try again!");
-        pwGenerator();
+        getStarted();
     };
 }; 
 
@@ -42,6 +42,8 @@ var getPasswordLength = function() {
 };  // end of passwordLength function
 
     
+
+
 // next, ask the use if they would like to include letters
 var alphabetArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 console.log(alphabetArray);
@@ -85,6 +87,7 @@ var getLetters = function() {
 
 // next, find out if the user would like to include numbers
 var numbersArray = Array.from({length: 999}, () => Math.floor(Math.random() * 999));
+//var numbersArray = Math.floor(1000 + Math.random() * 8999);
 console.log(numbersArray);
 
 // run the function to get random number is user replied yes
@@ -172,5 +175,4 @@ var nowQuit = function() {
     quit.innerHTML = "See You next Time!";
     console.log("quit now");
 };
-    
 
