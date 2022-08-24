@@ -1,5 +1,17 @@
 // Assignment code here
 
+
+// upper and lower case in letters!
+
+// make an empty array, depending on users reply PUSH users selection into that array
+// set character.length to users response. and then multiply that selection to array.length to fill in the length that user wants 
+// use the PUSH to throw randim chars in the empty array
+// and then run that final password with search method 
+// search() method to check the final password for criteria
+// regex() - pattern searcher google
+
+
+
 //Get references to the #generate and #password elements from HTML
 var generateBtn = document.querySelector("#generate");
 var quit = document.querySelector("#password");
