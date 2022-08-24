@@ -26,5 +26,5 @@ Next steps will be:
 
 Stay tuned!
 
-link to the application: https://valkim55.github.io/Password-Generator-StarterCode/
+link to the application: https://valkim55.github.io/Password-Generator-StarterCode/ <br>
 link to GitHub repository: https://github.com/valkim55/Password-Generator-StarterCode
